@@ -13,7 +13,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchBannerData = async () => {
-      const response = await axios.get("http://localhost:5000/api/banner");
+      const response = await axios.get("https://tuf-assignment-server-2.vercel.app/api/banner");
       setBannerData(response.data);
     };
     fetchBannerData();
@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/banner", bannerData);
+    await axios.post("https://tuf-assignment-server-2.vercel.app/api/banner", bannerData);
     alert("Banner updated successfully");
   };
 

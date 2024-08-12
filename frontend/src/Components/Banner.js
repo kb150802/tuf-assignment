@@ -9,7 +9,7 @@ const Banner = () => {
 
   useEffect(() => {
     const fetchBannerData = async () => {
-      const response = await axios.get("http://localhost:5000/api/banner");
+      const response = await axios.get("https://tuf-assignment-server-2.vercel.app/api/banner");
       console.log(response);
       setBannerData(response.data);
       setTimeLeft(response.data.timer);
