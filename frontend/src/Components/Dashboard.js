@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/dashboard.css"
+import "../styles/dashboard.css";
 
 import { Link } from "react-router-dom";
 const Dashboard = () => {
@@ -13,7 +13,9 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchBannerData = async () => {
-      const response = await axios.get("https://tuf-assignment-server-2.vercel.app/api/banner");
+      const response = await axios.get(
+        "https://tuf-assignment-server-2.vercel.app/api/banner"
+      );
       setBannerData(response.data);
     };
     fetchBannerData();
@@ -29,7 +31,10 @@ const Dashboard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("https://tuf-assignment-server-2.vercel.app/api/banner", bannerData);
+    await axios.post(
+      "https://tuf-assignment-server-2.vercel.app/api/banner",
+      bannerData
+    );
     alert("Banner updated successfully");
   };
 
@@ -42,17 +47,15 @@ const Dashboard = () => {
         <h2>Banner Control Dashboard</h2>
         <form onSubmit={handleSubmit}>
           <div className="isVisibleCheckBox">
-          <label>
-            Banner Visible
-          </label>
-          <input
+            <label>Banner Visible</label>
+            <input
               type="checkbox"
               name="is_visible"
               checked={bannerData.is_visible}
               onChange={handleInputChange}
             />
           </div>
-          
+
           <label>
             Description:
             <textarea

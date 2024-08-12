@@ -9,7 +9,9 @@ const Banner = () => {
 
   useEffect(() => {
     const fetchBannerData = async () => {
-      const response = await axios.get("https://tuf-assignment-server-2.vercel.app/api/banner");
+      const response = await axios.get(
+        "https://tuf-assignment-server-2.vercel.app/api/banner"
+      );
       console.log(response);
       setBannerData(response.data);
       setTimeLeft(response.data.timer);
@@ -32,20 +34,21 @@ const Banner = () => {
       <div className="navbar">
         <Link to="/dashboard">Go to dashboard</Link>
       </div>
-      {
-      bannerData && bannerData.is_visible && 
-      <div className="banner">
-        <p>{bannerData.description}</p>
-        <p>
-          Time left: {Math.floor(timeLeft / 60)}:
-          {(timeLeft % 60).toString().padStart(2, "0")}
-        </p>
-        <a href={bannerData.link} target="_blank" rel="noopener noreferrer">
-          Learn More
-        </a>
-        <hr />
-      </div>
-}
+      {bannerData && bannerData.is_visible && timeLeft ? (
+        <div className="banner">
+          <p>{bannerData.description}</p>
+          <p>
+            Time left: {Math.floor(timeLeft / 60)}:
+            {(timeLeft % 60).toString().padStart(2, "0")}
+          </p>
+          <a href={bannerData.link} target="_blank" rel="noopener noreferrer">
+            Learn More
+          </a>
+          <hr />
+        </div>
+      ) : (
+        <></>
+      )}
     </>
   );
 };
