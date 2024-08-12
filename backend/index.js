@@ -36,7 +36,7 @@ app.get('/api/banner', async (req, res) => {
     
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: 'An error occurred while fetching banner data' });
+    res.status(500).json({ error: 'An error occurred while fetching banner data' + error });
   }
 });
 
